@@ -15,7 +15,7 @@ body {
 .container {
     display: flex;
     flex-direction: column;
-    background-color: #E7F6F2;
+    background-color: #A5C9CA;
     width: 500px;
     height: 750px;
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
@@ -28,12 +28,25 @@ body {
     color: #E7F6F2;
     text-shadow: 0 5px 5px rgba(0, 0, 0, 0.3);
     flex: 1;
-    z-index: 0;
-    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.3);
-    border-bottom: 1px solid black;
     background: #395B64;
 }
 
-.c-main {
+.c-bottom {
+    display: flex;
     flex: 5;
+}
+
+.main {
+    display: grid;
+    grid-template-rows: 30px 50px;
+    grid-template-columns: 2fr 1fr 1fr;
+
+    flex: auto;
+    box-shadow: inset 0px 3px 10px rgba(0, 0, 0, 0.5);
+    margin: 15px;
+    background-color: #E7F6F2;
+}
+
+.item {
+    height: 50px;
 }
