@@ -16,12 +16,17 @@ body {
     display: flex;
     flex-direction: column;
     background-color: #E7F6F2;
-    width: 750px;
+    width: 500px;
     height: 750px;
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
 }
 
 .c-header {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #E7F6F2;
+    text-shadow: 0 5px 5px rgba(0, 0, 0, 0.3);
     flex: 1;
     z-index: 0;
     box-shadow: 0 5px 10px rgba(0, 0, 0, 0.3);
