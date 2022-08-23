@@ -8,6 +8,7 @@ body {
     background-color: #2C3333;
     display: flex;
     justify-content: center;
+    align-items: center;
     height: 100vh;
 }
 
@@ -16,6 +17,7 @@ body {
     flex-direction: column;
     background-color: #E7F6F2;
     width: 750px;
+    height: 750px;
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
 }
 
