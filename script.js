@@ -16,8 +16,8 @@ function Book(name, author, status) {
 };
 
 function addBookToLibrary(book) {
-
-}
+    myLibrary.push(book)
+};
 
 
 
