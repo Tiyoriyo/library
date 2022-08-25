@@ -8,10 +8,6 @@ const aboutFace = {
 
 let myLibrary = [aboutFace];
 
-const book1 = document.createElement('div');
-const book1Title = document.createElement('div');
-const book1Author = document.createElement('div');
-const book1Status = document.createElement('status');
 
 function Book(name, author, status) {
     this.name = name;
