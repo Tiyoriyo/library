@@ -1,4 +1,5 @@
 const createBook = document.createElement('div');
+const bookContainer = document.querySelector('.main');
 
 
 
@@ -28,7 +29,6 @@ function addBookToLibrary(book) {
 };
 
 function updateLiveLibrary(obj) {
-    const bookContainer = document.querySelector('.main');
     obj.forEach(element => {
         const createBook = document.createElement('div');
         createBook.style.display = 'grid';
@@ -36,7 +36,7 @@ function updateLiveLibrary(obj) {
         createBook.style.gridColumn = '1 / 4';
         
         propertyToDiv(obj, element);
-       
+
         bookContainer.appendChild(createBook);
     });
 
@@ -55,7 +55,8 @@ function propertyToDiv(obj, element) {
     createBook.appendChild(bookAuthor);
     bookRead.textContent = element['status'];
     createBook.appendChild(bookRead);
-    
+    console.log(createBook);
+
 }
 
 
