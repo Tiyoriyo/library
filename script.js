@@ -1,5 +1,6 @@
 const createBook = document.createElement('div');
 const bookContainer = document.querySelector('.main');
+const newItem = document.getElementById('newButton');
 
 
 
@@ -21,7 +22,7 @@ const kisAmk = {
     status: false,
 }
 
-let myLibrary = [aboutFace, aboutPace, kisAmk, kisAmk, kisAmk, kisAmk, kisAmk, kisAmk, kisAmk, kisAmk, kisAmk, kisAmk, kisAmk, kisAmk, kisAmk, kisAmk, kisAmk];
+let myLibrary = [aboutFace];
 
 
 function Book(name, author, status) {
@@ -34,13 +35,7 @@ function addBookToLibrary(book) {
     myLibrary.push(book)
 };
 
-function propertyToDiv(element) {
-    const bookName = document.createElement('div');
-    const bookAuthor = document.createElement('div');
-    const bookRead = document.createElement('div');
 
-   
-}
 
 function updateLiveLibrary(obj) {
 
@@ -68,8 +63,6 @@ function updateLiveLibrary(obj) {
         createBook.appendChild(bookRead);
         bookContainer.appendChild(createBook);
     }
-
-
 
 };
 
