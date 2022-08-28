@@ -15,7 +15,13 @@ const aboutPace = {
     status: false,
 }
 
-let myLibrary = [aboutFace, aboutPace];
+const kisAmk = {
+    name: 'Can\'t Hurt Me: Master Your Mind and Defy the Odds.. Theres nothing going to hold us back',
+    author: 'David Goggins',
+    status: false,
+}
+
+let myLibrary = [aboutFace, aboutPace, kisAmk, kisAmk, kisAmk, kisAmk, kisAmk, kisAmk, kisAmk, kisAmk, kisAmk, kisAmk, kisAmk, kisAmk, kisAmk, kisAmk];
 
 
 function Book(name, author, status) {

@@ -35,6 +35,11 @@ body {
 .c-bottom {
     display: flex;
     flex: 5;
+    overflow: scroll;
+}
+
+.c-bottom::-webkit-scrollbar {
+    display: none;
 }
 
 .main {
