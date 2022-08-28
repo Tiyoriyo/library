@@ -7,6 +7,7 @@
 body {
     background-color: #2C3333;
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
     height: 100vh;
@@ -76,4 +77,33 @@ div.main-header > div {
 
 .item {
     height: 50px;
+}
+
+input[type='checkbox'] {
+    display: flex;
+    justify-self: flex-start;
+}
+
+.newItem {
+    margin-top: 15px;
+    appearance: none;
+    -moz-appearance: none;
+    padding: 10px 50px;
+    border: none;
+    border: 5px solid #A5C9CA;
+    background-color: #eef2f1;
+    box-shadow: inset 0px 3px 10px rgba(0, 0, 0, 0.5);
+    font-size: 16px;
+    font-family: monospace;
+}
+
+.newItem:hover {
+    cursor: pointer;
+    background-color: #e1e1e1;
+    border: 5px solid #7f9d9e;
+
+}
+
+.newItem:active {
+    box-shadow: inset 0px 3px 10px rgba(0, 0, 0, 0.3);
 }
