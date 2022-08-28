@@ -62,8 +62,14 @@ body {
 }
 
 .book-item {
-    font-size: 16px;
+    font-size: 15px;
     align-items: center;
+}
+
+.book-item > div {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
 }
 
 .book-item:hover {

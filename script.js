@@ -10,8 +10,8 @@ const aboutFace = {
 }
 
 const aboutPace = {
-    name: 'About Pace',
-    author: 'David Hackworth',
+    name: 'Can\'t Hurt Me: Master Your Mind and Defy the Odds.. Theres nothing going to hold us back',
+    author: 'David Goggins',
     status: false,
 }
 
