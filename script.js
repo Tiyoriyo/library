@@ -28,36 +28,41 @@ function addBookToLibrary(book) {
     myLibrary.push(book)
 };
 
+function propertyToDiv(element) {
+    const bookName = document.createElement('div');
+    const bookAuthor = document.createElement('div');
+    const bookRead = document.createElement('div');
+
+   
+}
+
 function updateLiveLibrary(obj) {
-    obj.forEach(element => {
+
+    for (let i = 0; i < obj.length; i++) {
         const createBook = document.createElement('div');
+        const bookName = document.createElement('div');
+        const bookAuthor = document.createElement('div');
+        const bookRead = document.createElement('div');
+
         createBook.style.display = 'grid';
         createBook.style.gridTemplateColumns = 'inherit';
         createBook.style.gridColumn = '1 / 4';
-        
-        propertyToDiv(obj, element);
 
+        bookName.textContent = obj[i]['name'];
+        createBook.appendChild(bookName);
+        bookAuthor.textContent = obj[i]['author'];
+        createBook.appendChild(bookAuthor);
+        bookRead.textContent = obj[i]['status'];
+        createBook.appendChild(bookRead);
         bookContainer.appendChild(createBook);
-    });
+    }
+
+
 
 };
 
 updateLiveLibrary(myLibrary);
 
-function propertyToDiv(obj, element) {
-    const bookName = document.createElement('div');
-    const bookAuthor = document.createElement('div');
-    const bookRead = document.createElement('div');
-
-    bookName.textContent = element['name'];
-    createBook.appendChild(bookName);
-    bookAuthor.textContent = element['author'];
-    createBook.appendChild(bookAuthor);
-    bookRead.textContent = element['status'];
-    createBook.appendChild(bookRead);
-    console.log(createBook);
-
-}
 
 
 
