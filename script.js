@@ -44,9 +44,8 @@ function updateLiveLibrary(obj) {
         const bookAuthor = document.createElement('div');
         const bookRead = document.createElement('div');
 
-        createBook.style.display = 'grid';
-        createBook.style.gridTemplateColumns = 'inherit';
-        createBook.style.gridColumn = '1 / 4';
+    
+        createBook.classList.add('book-item');
 
         bookName.textContent = obj[i]['name'];
         createBook.appendChild(bookName);
