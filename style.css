@@ -18,7 +18,7 @@ body {
     flex-direction: column;
     background-color: #A5C9CA;
     width: 550px;
-    height: 750px;
+    height: 800px;
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
 }
 
@@ -34,13 +34,11 @@ body {
 
 .c-bottom {
     display: flex;
+    padding: 15px;
     flex: 5;
-    overflow: scroll;
+    overflow: hidden;
 }
 
-.c-bottom::-webkit-scrollbar {
-    display: none;
-}
 
 .main {
     display: grid;
@@ -49,9 +47,13 @@ body {
     grid-auto-rows: 40px;
     flex: auto;
     box-shadow: inset 0px 3px 10px rgba(0, 0, 0, 0.5);
-    margin: 15px;
     padding: 10px;
     background-color: #E7F6F2;
+    overflow: scroll;    
+}
+
+.main::-webkit-scrollbar {
+    display: none;
 }
 
 .main-header {
@@ -67,7 +69,8 @@ body {
 }
 
 .book-item {
-    font-size: 15px;
+    font-size: 14px;
+    font-style: italic;
     align-items: center;
 }
 

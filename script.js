@@ -21,7 +21,7 @@ const kisAmk = {
     status: false,
 }
 
-let myLibrary = [aboutFace, aboutPace, kisAmk, kisAmk, kisAmk, kisAmk, kisAmk, kisAmk, kisAmk, kisAmk, kisAmk, kisAmk, kisAmk, kisAmk, kisAmk, kisAmk];
+let myLibrary = [aboutFace, aboutPace, kisAmk, kisAmk, kisAmk, kisAmk, kisAmk, kisAmk, kisAmk, kisAmk, kisAmk, kisAmk, kisAmk, kisAmk, kisAmk, kisAmk, kisAmk];
 
 
 function Book(name, author, status) {
