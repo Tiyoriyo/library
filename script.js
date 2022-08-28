@@ -12,7 +12,7 @@ const aboutFace = {
 const aboutPace = {
     name: 'About Pace',
     author: 'David Hackworth',
-    status: 'Reading',
+    status: false,
 }
 
 let myLibrary = [aboutFace, aboutPace];
@@ -42,7 +42,7 @@ function updateLiveLibrary(obj) {
         const createBook = document.createElement('div');
         const bookName = document.createElement('div');
         const bookAuthor = document.createElement('div');
-        const bookRead = document.createElement('div');
+        const bookRead = document.createElement(`input`);
 
     
         createBook.classList.add('book-item');
@@ -51,7 +51,14 @@ function updateLiveLibrary(obj) {
         createBook.appendChild(bookName);
         bookAuthor.textContent = obj[i]['author'];
         createBook.appendChild(bookAuthor);
+        bookRead.type = 'checkbox';
         bookRead.textContent = obj[i]['status'];
+        if ( obj[i]['status'] ) {
+            bookRead.checked = true;
+        } else {
+            bookRead.checked = false;
+        }
+
         createBook.appendChild(bookRead);
         bookContainer.appendChild(createBook);
     }
