@@ -39,7 +39,10 @@ newItem.addEventListener('click', () => {
     const createBook = document.createElement('div');
     const inputName = document.createElement('input');
     const inputAuthor = document.createElement('input');
+    const inputButtonSet = document.createElement('div');
     const inputStatus = document.createElement('input');
+    const confirmItem = document.createElement('button');
+    const cancelItem = document.createElement('button');
     
     createBook.classList.add('book-item');
 
@@ -49,14 +52,26 @@ newItem.addEventListener('click', () => {
     inputAuthor.type = 'text';
     inputAuthor.classList.add('input-item');
 
+    inputButtonSet.classList.add('button-set');
+
     inputStatus.type = 'checkbox';
     inputStatus.classList.add('input-check');
 
+    confirmItem.classList.add('confirmButton');
+
+    cancelItem.classList.add('cancel-button');
+    
+    inputButtonSet.appendChild(inputStatus);
+    inputButtonSet.appendChild(confirmItem);
+    inputButtonSet.appendChild(cancelItem);
+
     createBook.appendChild(inputName);
     createBook.appendChild(inputAuthor);
-    createBook.appendChild(inputStatus);
+    createBook.appendChild(inputButtonSet);
     bookContainer.appendChild(createBook);
 });
+
+
 
 function updateLiveLibrary(obj) {
 

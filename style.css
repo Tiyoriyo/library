@@ -81,7 +81,6 @@ body {
 }
 
 .book-item:hover {
-    cursor: pointer;
     background-color: #e3f0ed;
 }
 
@@ -96,6 +95,8 @@ div.main-header > div {
 input[type='checkbox'] {
     display: flex;
     justify-self: flex-start;
+
+    cursor: pointer;
 }
 
 .input-item {
@@ -112,6 +113,32 @@ input[type='checkbox'] {
 
 .input-item:focus {
     outline: none;
+}
+
+.button-set {
+    display: flex;
+    gap: 15px;
+    align-items: center;
+}
+
+.confirmButton {
+    cursor: pointer;
+    width: 13px;
+    height: 13px;
+    background: rgb(0, 214, 0);
+    border: 1px solid green;
+    border-radius: 2px;
+    
+}
+
+.cancel-button {
+    cursor: pointer;
+    height: 13px;
+    width: 13px;
+    background-color: red;
+    border: 1px solid rgb(132, 0, 0);
+    border-radius: 2px;
+
 }
 
 .newItem {
