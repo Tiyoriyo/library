@@ -56,7 +56,7 @@ function addBookToLibrary() {
     activeTempBook = false;
 
     removeAllBooks();
-    
+    return;
 }
 
 
@@ -68,7 +68,6 @@ function addTempBook() {
     const inputStatus = document.createElement('input');
     const confirmItem = document.createElement('button');
     const cancelItem = document.createElement('button');
-    const confirmButton = document.querySelector('.confirmButton');
     
     createBook.classList.add('book-item');
 
@@ -87,7 +86,25 @@ function addTempBook() {
     inputStatus.setAttribute('id', 'bookRead')
 
     confirmItem.classList.add('confirmButton');
-    confirmItem.addEventListener('click', addBookToLibrary);
+    confirmItem.addEventListener('click', () => {
+
+        let errorMsg1 = 'Input Book Title Here';
+        let errorMsg2 = 'Input Book Author Here';
+        
+        if (inputName.value.length == 0 && inputAuthor.value.length == 0) {
+            inputName.value = 'Input Book Title Here';
+            inputAuthor.value = 'Input Author Here';
+            return;
+        } else if (inputName.value.length == 0 && inputAuthor.value.length != 0) {
+            inputName.value = 'Input Book Title Here';
+            return;
+        } else if (inputName.value.length != 0 && inputAuthor.value.length == 0) {
+            inputAuthor.value = 'Input Book Author Here';
+            return;
+        } else {
+            addBookToLibrary();
+        };
+    });
 
     cancelItem.classList.add('cancel-button');
     

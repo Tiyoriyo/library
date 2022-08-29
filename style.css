@@ -130,6 +130,10 @@ input[type='checkbox'] {
     border-radius: 2px;
 }
 
+.confirmButton:hover {
+    background: rgb(0, 203, 0);
+}
+
 .cancel-button {
     cursor: pointer;
     height: 13px;
