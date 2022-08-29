@@ -45,6 +45,10 @@ newItem.addEventListener('click', () => {
     }
 });
 
+function addBookToLibrary() {
+
+}
+
 
 function addTempBook() {
     const createBook = document.createElement('div');
@@ -59,14 +63,17 @@ function addTempBook() {
 
     inputName.type = 'text';
     inputName.classList.add('input-item');
+    inputName.setAttribute('id', 'bookTitle')
 
     inputAuthor.type = 'text';
     inputAuthor.classList.add('input-item');
+    inputAuthor.setAttribute('id', 'bookAuthor');
 
     inputButtonSet.classList.add('button-set');
 
     inputStatus.type = 'checkbox';
     inputStatus.classList.add('input-check');
+    inputStatus.setAttribute('id', 'bookRead')
 
     confirmItem.classList.add('confirmButton');
 
