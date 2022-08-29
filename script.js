@@ -2,6 +2,8 @@ const createBook = document.createElement('div');
 const bookContainer = document.querySelector('.main');
 const newItem = document.getElementById('newButton');
 
+let activeTempBook = false;
+
 
 
 const aboutFace = {
@@ -36,6 +38,15 @@ function addBookToLibrary(book) {
 };
 
 newItem.addEventListener('click', () => {
+    if (activeTempBook) {
+        alert('No');
+    } else {
+        addTempBook();
+    }
+});
+
+
+function addTempBook() {
     const createBook = document.createElement('div');
     const inputName = document.createElement('input');
     const inputAuthor = document.createElement('input');
@@ -69,9 +80,9 @@ newItem.addEventListener('click', () => {
     createBook.appendChild(inputAuthor);
     createBook.appendChild(inputButtonSet);
     bookContainer.appendChild(createBook);
-});
 
-
+    activeTempBook = true;
+};
 
 function updateLiveLibrary(obj) {
 

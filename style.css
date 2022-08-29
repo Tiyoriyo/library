@@ -128,7 +128,6 @@ input[type='checkbox'] {
     background: rgb(0, 214, 0);
     border: 1px solid green;
     border-radius: 2px;
-    
 }
 
 .cancel-button {
@@ -138,7 +137,6 @@ input[type='checkbox'] {
     background-color: red;
     border: 1px solid rgb(132, 0, 0);
     border-radius: 2px;
-
 }
 
 .newItem {
