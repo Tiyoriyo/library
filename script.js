@@ -53,6 +53,8 @@ function addBookToLibrary() {
     const BOOK = new Book(BOOKTITLE, BOOKAUTHOR, BOOKREAD);
     myLibrary.push(BOOK);
 
+    activeTempBook = false;
+
     removeAllBooks();
     
 }
