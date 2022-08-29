@@ -44,8 +44,13 @@ newItem.addEventListener('click', () => {
     createBook.classList.add('book-item');
 
     inputName.type = 'text';
+    inputName.classList.add('input-item');
+
     inputAuthor.type = 'text';
+    inputAuthor.classList.add('input-item');
+
     inputStatus.type = 'checkbox';
+    inputStatus.classList.add('input-check');
 
     createBook.appendChild(inputName);
     createBook.appendChild(inputAuthor);

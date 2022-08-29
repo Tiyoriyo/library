@@ -98,6 +98,22 @@ input[type='checkbox'] {
     justify-self: flex-start;
 }
 
+.input-item {
+    appearance: none;
+    -moz-appearance: none;
+    border: none;
+    border-left: 1px none rgb(0, 0, 0, 0.3);
+    border-right: 1px dashed rgb(0, 0, 0, 0.3);
+    background: none;
+    padding-left: 2px;
+    height: 80%;
+    width: 80%;
+}
+
+.input-item:focus {
+    outline: none;
+}
+
 .newItem {
     margin-top: 15px;
     appearance: none;
