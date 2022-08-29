@@ -35,7 +35,12 @@ function addBookToLibrary(book) {
     myLibrary.push(book)
 };
 
-
+newItem.addEventListener('click', () => {
+    const createBook = document.createElement('div');
+    
+    createBook.classList.add('book-item');
+    bookContainer.appendChild(createBook);
+});
 
 function updateLiveLibrary(obj) {
 
