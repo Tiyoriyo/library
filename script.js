@@ -37,8 +37,19 @@ function addBookToLibrary(book) {
 
 newItem.addEventListener('click', () => {
     const createBook = document.createElement('div');
+    const inputName = document.createElement('input');
+    const inputAuthor = document.createElement('input');
+    const inputStatus = document.createElement('input');
     
     createBook.classList.add('book-item');
+
+    inputName.type = 'text';
+    inputAuthor.type = 'text';
+    inputStatus.type = 'checkbox';
+
+    createBook.appendChild(inputName);
+    createBook.appendChild(inputAuthor);
+    createBook.appendChild(inputStatus);
     bookContainer.appendChild(createBook);
 });
 
