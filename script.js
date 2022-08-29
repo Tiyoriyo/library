@@ -1,7 +1,7 @@
 const createBook = document.createElement('div');
 const bookContainer = document.querySelector('.main');
 const newItem = document.getElementById('newButton');
-
+const confirmButton = document.querySelector('.confirmButton');
 let activeTempBook = false;
 
 
@@ -33,10 +33,6 @@ function Book(name, author, status) {
     this.status = Boolean(status);
 };
 
-function addBookToLibrary(book) {
-    myLibrary.push(book)
-};
-
 newItem.addEventListener('click', () => {
     if (activeTempBook) {
         alert('No');
@@ -46,7 +42,19 @@ newItem.addEventListener('click', () => {
 });
 
 function addBookToLibrary() {
+    const BOOKTITLE = document.querySelector('#bookTitle').value;
+    const BOOKAUTHOR = document.querySelector('#bookAuthor').value;
+    const BOOKREAD = document.querySelector('#bookRead').checked;
 
+    createBook.remove();
+
+    
+
+    const BOOK = new Book(BOOKTITLE, BOOKAUTHOR, BOOKREAD);
+    myLibrary.push(BOOK);
+
+    removeAllBooks();
+    
 }
 
 
@@ -58,6 +66,7 @@ function addTempBook() {
     const inputStatus = document.createElement('input');
     const confirmItem = document.createElement('button');
     const cancelItem = document.createElement('button');
+    const confirmButton = document.querySelector('.confirmButton');
     
     createBook.classList.add('book-item');
 
@@ -76,6 +85,7 @@ function addTempBook() {
     inputStatus.setAttribute('id', 'bookRead')
 
     confirmItem.classList.add('confirmButton');
+    confirmItem.addEventListener('click', addBookToLibrary);
 
     cancelItem.classList.add('cancel-button');
     
@@ -119,6 +129,16 @@ function updateLiveLibrary(obj) {
     }
 
 };
+
+function removeAllBooks() {
+    const BOOKS = document.querySelectorAll('.book-item');
+    
+    BOOKS.forEach(book => {
+        book.remove();
+    });
+
+    updateLiveLibrary(myLibrary);
+}
 
 updateLiveLibrary(myLibrary);
 
