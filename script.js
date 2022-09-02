@@ -34,18 +34,14 @@ function addBookToLibrary() {
     const BOOKREAD = document.querySelector('#bookRead').checked;
 
     createBook.remove();
-
-    
+    removeAllBooks();
 
     const BOOK = new Book(BOOKTITLE, BOOKAUTHOR, BOOKREAD);
     myLibrary.push(BOOK);
 
     activeTempBook = false;
-
-    removeAllBooks();
-    return;
+    updateLiveLibrary(myLibrary);
 }
-
 
 function addTempBook() {
     const createBook = document.createElement('div');
@@ -57,7 +53,36 @@ function addTempBook() {
     const cancelItem = document.createElement('button');
     
     createBook.classList.add('book-item');
+    addInputs(inputName, inputAuthor, inputButtonSet, inputStatus, confirmItem, cancelItem);
+    appendInputs(bookContainer, createBook, inputName, inputAuthor, inputButtonSet, inputStatus, confirmItem, cancelItem);
+    
+    activeTempBook = true;
+};
 
+function confirmBook(title, author) {
+    if (title.value.length == 0 && author.value.length == 0) {
+        title.value = 'Input Book Title Here';
+        author.value = 'Input Author Here';
+        return;
+    } else if (title.value.length == 0 && author.value.length != 0) {
+        title.value = 'Input Book Title Here';
+        return;
+    } else if (title.value.length != 0 && author.value.length == 0) {
+        author.value = 'Input Book Author Here';
+        return;
+    } else {
+        addBookToLibrary();
+    };
+}
+
+function cancelBook() {
+    activeTempBook = false;
+    createBook.remove();
+    removeAllBooks();
+    updateLiveLibrary(myLibrary);
+}
+
+function addInputs(inputName, inputAuthor, inputButtonSet, inputStatus, confirmItem, cancelItem) {
     inputName.type = 'text';
     inputName.classList.add('input-item');
     inputName.setAttribute('id', 'bookTitle')
@@ -73,31 +98,13 @@ function addTempBook() {
     inputStatus.setAttribute('id', 'bookRead')
 
     confirmItem.classList.add('confirmButton');
-    confirmItem.addEventListener('click', () => {
-        
-        if (inputName.value.length == 0 && inputAuthor.value.length == 0) {
-            inputName.value = 'Input Book Title Here';
-            inputAuthor.value = 'Input Author Here';
-            return;
-        } else if (inputName.value.length == 0 && inputAuthor.value.length != 0) {
-            inputName.value = 'Input Book Title Here';
-            return;
-        } else if (inputName.value.length != 0 && inputAuthor.value.length == 0) {
-            inputAuthor.value = 'Input Book Author Here';
-            return;
-        } else {
-            addBookToLibrary();
-        };
-    });
+    confirmItem.addEventListener('click', () => confirmBook(inputName, inputAuthor));
 
     cancelItem.classList.add('cancel-button');
-    cancelItem.addEventListener('click', () => {
-        updateLiveLibrary(myLibrary);
-        createBook.remove();
-        activeTempBook = false;
-        removeAllBooks();
-    });
-    
+    cancelItem.addEventListener('click', () => cancelBook())
+}
+
+function appendInputs(bookContainer, createBook, inputName, inputAuthor, inputButtonSet, inputStatus, confirmItem, cancelItem) {
     inputButtonSet.appendChild(inputStatus);
     inputButtonSet.appendChild(confirmItem);
     inputButtonSet.appendChild(cancelItem);
@@ -106,33 +113,30 @@ function addTempBook() {
     createBook.appendChild(inputAuthor);
     createBook.appendChild(inputButtonSet);
     bookContainer.appendChild(createBook);
-
-    activeTempBook = true;
-};
+}
 
 function updateLiveLibrary(obj) {
-
     for (let i = 0; i < obj.length; i++) {
         const createBook = document.createElement('div');
         const bookName = document.createElement('div');
         const bookAuthor = document.createElement('div');
         const bookRead = document.createElement(`input`);
 
-    
         createBook.classList.add('book-item');
 
         bookName.textContent = obj[i]['name'];
-        createBook.appendChild(bookName);
         bookAuthor.textContent = obj[i]['author'];
-        createBook.appendChild(bookAuthor);
         bookRead.type = 'checkbox';
         bookRead.textContent = obj[i]['status'];
+
         if ( obj[i]['status'] ) {
             bookRead.checked = true;
         } else {
             bookRead.checked = false;
         }
 
+        createBook.appendChild(bookName);
+        createBook.appendChild(bookAuthor);
         createBook.appendChild(bookRead);
         bookContainer.appendChild(createBook);
     }
@@ -141,12 +145,9 @@ function updateLiveLibrary(obj) {
 
 function removeAllBooks() {
     const BOOKS = document.querySelectorAll('.book-item');
-    
     BOOKS.forEach(book => {
         book.remove();
     });
-
-    updateLiveLibrary(myLibrary);
 }
 
 updateLiveLibrary(myLibrary);
