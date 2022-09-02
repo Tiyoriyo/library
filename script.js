@@ -9,23 +9,10 @@ let activeTempBook = false;
 const aboutFace = {
     name: 'About Face',
     author: 'David Hackworth',
-    status: 'Reading',
-}
-
-const aboutPace = {
-    name: 'Can\'t Hurt Me: Master Your Mind and Defy the Odds.. Theres nothing going to hold us back',
-    author: 'David Goggins',
-    status: false,
-}
-
-const kisAmk = {
-    name: 'Can\'t Hurt Me: Master Your Mind and Defy the Odds.. Theres nothing going to hold us back',
-    author: 'David Goggins',
-    status: false,
-}
+    status: true,
+};
 
 let myLibrary = [aboutFace];
-
 
 function Book(name, author, status) {
     this.name = name;
@@ -87,9 +74,6 @@ function addTempBook() {
 
     confirmItem.classList.add('confirmButton');
     confirmItem.addEventListener('click', () => {
-
-        let errorMsg1 = 'Input Book Title Here';
-        let errorMsg2 = 'Input Book Author Here';
         
         if (inputName.value.length == 0 && inputAuthor.value.length == 0) {
             inputName.value = 'Input Book Title Here';
@@ -107,6 +91,12 @@ function addTempBook() {
     });
 
     cancelItem.classList.add('cancel-button');
+    cancelItem.addEventListener('click', () => {
+        updateLiveLibrary(myLibrary);
+        createBook.remove();
+        activeTempBook = false;
+        removeAllBooks();
+    });
     
     inputButtonSet.appendChild(inputStatus);
     inputButtonSet.appendChild(confirmItem);
