@@ -120,12 +120,15 @@ function updateLiveLibrary(obj) {
         const createBook = document.createElement('div');
         const bookName = document.createElement('div');
         const bookAuthor = document.createElement('div');
+        const statusSet = document.createElement('div');
         const bookRead = document.createElement(`input`);
+        const remove = document.createElement('button');
 
         createBook.classList.add('book-item');
 
         bookName.textContent = obj[i]['name'];
         bookAuthor.textContent = obj[i]['author'];
+        statusSet.classList.add('button-set');
         bookRead.type = 'checkbox';
         bookRead.textContent = obj[i]['status'];
 
@@ -135,9 +138,16 @@ function updateLiveLibrary(obj) {
             bookRead.checked = false;
         }
 
+        remove.textContent = '✕';
+        remove.classList.add('remove-button')
+        statusSet.appendChild(bookRead);
+        statusSet.appendChild(remove);
+
+
         createBook.appendChild(bookName);
         createBook.appendChild(bookAuthor);
-        createBook.appendChild(bookRead);
+        createBook.appendChild(statusSet);
+        createBook.classList.add('final-book');
         bookContainer.appendChild(createBook);
     }
 
@@ -151,6 +161,10 @@ function removeAllBooks() {
 }
 
 updateLiveLibrary(myLibrary);
+
+const FINALBOOK = document.querySelectorAll('.final-book');
+
+
 
 
 

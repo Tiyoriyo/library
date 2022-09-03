@@ -166,3 +166,27 @@ input[type='checkbox'] {
 .newItem:active {
     box-shadow: inset 0px 3px 10px rgba(0, 0, 0, 0.3);
 }
+
+.remove-button {
+    appearance: none;
+    -moz-appearance: none;
+    width: 13px;
+    height: 13px;
+    padding-bottom: 1px;
+    cursor: pointer;
+    overflow: hidden;
+    border: 1px solid grey;
+    background: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: bold;
+    text-align: center;
+    color: red;
+    border-radius: 2px;
+}
+
+.remove-button:hover {
+    color: rgb(204, 0, 0);
+    background: rgb(240, 240, 240);
+}
