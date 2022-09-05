@@ -175,18 +175,18 @@ input[type='checkbox'] {
     padding-bottom: 1px;
     cursor: pointer;
     overflow: hidden;
-    border: 1px solid grey;
-    background: white;
+    border: none;
+    background: none;
     display: flex;
     justify-content: center;
     align-items: center;
     font-weight: bold;
     text-align: center;
-    color: red;
+    color: #395B64;
     border-radius: 2px;
 }
 
 .remove-button:hover {
-    color: rgb(204, 0, 0);
-    background: rgb(240, 240, 240);
+    color: #294249;
+    /* background: rgb(240, 240, 240); */
 }

@@ -3,6 +3,7 @@ const bookContainer = document.querySelector('.main');
 const newItem = document.getElementById('newButton');
 const confirmButton = document.querySelector('.confirmButton');
 let activeTempBook = false;
+let nodePosition = [];
 
 
 
@@ -125,6 +126,7 @@ function updateLiveLibrary(obj) {
         const remove = document.createElement('button');
 
         createBook.classList.add('book-item');
+        createBook.setAttribute('id', `${i+1}`)
 
         bookName.textContent = obj[i]['name'];
         bookAuthor.textContent = obj[i]['author'];
@@ -140,6 +142,11 @@ function updateLiveLibrary(obj) {
 
         remove.textContent = '✕';
         remove.classList.add('remove-button')
+        remove.addEventListener('click', (e) => {
+            let position = e.target.parentNode.parentNode.id - 1;
+            let items = document.getElementsByClassName('final-book');
+            items[position].remove();
+        });
         statusSet.appendChild(bookRead);
         statusSet.appendChild(remove);
 
@@ -149,6 +156,7 @@ function updateLiveLibrary(obj) {
         createBook.appendChild(statusSet);
         createBook.classList.add('final-book');
         bookContainer.appendChild(createBook);
+        nodePosition.push(i);
     }
 
 };
