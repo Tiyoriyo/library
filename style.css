@@ -137,7 +137,7 @@ input[type='checkbox'] {
 }
 
 .confirmButton:hover {
-    background: rgb(0, 203, 0);
+    background: rgb(0, 194, 0);
 }
 
 .cancel-button {
@@ -147,6 +147,10 @@ input[type='checkbox'] {
     background-color: red;
     border: 1px solid rgb(132, 0, 0);
     border-radius: 2px;
+}
+
+.cancel-button:hover {
+    background-color: rgb(186, 0, 0);
 }
 
 .newItem {
@@ -192,6 +196,6 @@ input[type='checkbox'] {
 }
 
 .remove-button:hover {
-    color: #294249;
+    color: #558b9a;
     /* background: rgb(240, 240, 240); */
 }
