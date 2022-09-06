@@ -4,9 +4,15 @@
     font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
 }
 
+p {
+    font-family: monospace;
+    color: white;
+}
+
 body {
     background-color: #2C3333;
     display: flex;
+    gap: 15px;
     flex-direction: column;
     justify-content: center;
     align-items: center;
@@ -144,7 +150,6 @@ input[type='checkbox'] {
 }
 
 .newItem {
-    margin-top: 15px;
     appearance: none;
     -moz-appearance: none;
     padding: 10px 50px;
