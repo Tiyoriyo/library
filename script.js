@@ -52,11 +52,12 @@ function addTempBook() {
     const inputStatus = document.createElement('input');
     const confirmItem = document.createElement('button');
     const cancelItem = document.createElement('button');
+    const scroll = document.querySelector('.main');
     
     createBook.classList.add('book-item');
     addInputs(inputName, inputAuthor, inputButtonSet, inputStatus, confirmItem, cancelItem);
     appendInputs(bookContainer, createBook, inputName, inputAuthor, inputButtonSet, inputStatus, confirmItem, cancelItem);
-    
+    scroll.scrollTop = scroll.scrollHeight;
     activeTempBook = true;
 };
 
@@ -160,7 +161,7 @@ function updateLiveLibrary(obj) {
         nodePosition.push(i);
     }
 
-};
+}
 
 function removeAllBooks() {
     const BOOKS = document.querySelectorAll('.book-item');
