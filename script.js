@@ -145,9 +145,10 @@ function updateLiveLibrary(obj) {
         remove.classList.add('remove-button')
         remove.addEventListener('click', (e) => {
             let position = e.target.parentNode.parentNode.id - 1;
-            let items = document.getElementsByClassName('final-book');
             myLibrary.splice(position, 1);
-            items[position].remove();
+            removeAllBooks()
+            updateLiveLibrary(myLibrary);
+            console.table(myLibrary);
         });
         statusSet.appendChild(bookRead);
         statusSet.appendChild(remove);
