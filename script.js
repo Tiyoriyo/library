@@ -15,10 +15,12 @@ const aboutFace = {
 
 let myLibrary = [aboutFace];
 
-function Book(name, author, status) {
-    this.name = name;
-    this.author = author;
-    this.status = Boolean(status);
+class Book {
+    constructor(name, author, status) {
+        this.name = name;
+        this.author = author;
+        this.status = status;
+    }
 };
 
 newItem.addEventListener('click', () => {
@@ -57,6 +59,7 @@ function addTempBook() {
     createBook.classList.add('book-item');
     addInputs(inputName, inputAuthor, inputButtonSet, inputStatus, confirmItem, cancelItem);
     appendInputs(bookContainer, createBook, inputName, inputAuthor, inputButtonSet, inputStatus, confirmItem, cancelItem);
+
     scroll.scrollTop = scroll.scrollHeight;
     activeTempBook = true;
 };
@@ -101,6 +104,11 @@ function addInputs(inputName, inputAuthor, inputButtonSet, inputStatus, confirmI
 
     confirmItem.classList.add('confirmButton');
     confirmItem.addEventListener('click', () => confirmBook(inputName, inputAuthor));
+    confirmItem.addEventListener('keydown', (event) => {
+        if(event.keyDown === 13) {
+            confirmBook(inputName, inputAuthor);
+        }
+    });
 
     cancelItem.classList.add('cancel-button');
     cancelItem.addEventListener('click', () => cancelBook())
@@ -150,9 +158,9 @@ function updateLiveLibrary(obj) {
             updateLiveLibrary(myLibrary);
             console.table(myLibrary);
         });
+
         statusSet.appendChild(bookRead);
         statusSet.appendChild(remove);
-
 
         createBook.appendChild(bookName);
         createBook.appendChild(bookAuthor);
