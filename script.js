@@ -55,7 +55,8 @@ function addTempBook() {
     const confirmItem = document.createElement('button');
     const cancelItem = document.createElement('button');
     const scroll = document.querySelector('.main');
-    
+    inputName.required = true;
+    inputAuthor.required = true;
     createBook.classList.add('book-item');
     addInputs(inputName, inputAuthor, inputButtonSet, inputStatus, confirmItem, cancelItem);
     appendInputs(bookContainer, createBook, inputName, inputAuthor, inputButtonSet, inputStatus, confirmItem, cancelItem);
@@ -64,21 +65,55 @@ function addTempBook() {
     activeTempBook = true;
 };
 
-function confirmBook(title, author) {
-    if (title.value.length == 0 && author.value.length == 0) {
-        title.value = 'Input Book Title Here';
-        author.value = 'Input Author Here';
-        return;
-    } else if (title.value.length == 0 && author.value.length != 0) {
-        title.value = 'Input Book Title Here';
-        return;
-    } else if (title.value.length != 0 && author.value.length == 0) {
-        author.value = 'Input Book Author Here';
+function confirmBook() {
+    // if (title.value.length == 0 && author.value.length == 0) {
+    //     title.value = 'Input Book Title Here';
+    //     author.value = 'Input Author Here';
+    //     return;
+    // } else if (title.value.length == 0 && author.value.length != 0) {
+    //     title.value = 'Input Book Title Here';
+    //     return;
+    // } else if (title.value.length != 0 && author.value.length == 0) {
+    //     author.value = 'Input Book Author Here';
+    //     return;
+    // } else {
+    //     addBookToLibrary();
+    // };
+
+    const title = document.querySelector('#bookTitle');
+    const author = document.querySelector('#bookAuthor')
+
+    console.log(title.validity, author.validity)
+
+    title.setCustomValidity('');
+    author.setCustomValidity('');
+
+    if (!title.validity.valid || !author.validity.valid) {
+        console.log('test');
+        showError(title, author);
         return;
     } else {
         addBookToLibrary();
-    };
+    }
 }
+
+function showError(title, author) {
+    if (title.validity.valueMissing) {
+        title.setCustomValidity('You need to type in the title of the book');
+        title.reportValidity();
+    } else {
+        title.setCustomValidity('');
+    }
+
+    if (author.validity.valueMissing) {
+        author.setCustomValidity(`You need to type the Author's name`);
+        author.reportValidity();
+    } else {
+        author.setCustomValidity('')
+    }
+}
+
+
 
 function cancelBook() {
     activeTempBook = false;
